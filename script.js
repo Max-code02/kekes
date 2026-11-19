@@ -22,12 +22,6 @@ function setStatus(text, className) {
   statusTextEl.className = `stat-value ${className}`;
 }
 
-function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str ?? "";
-  return div.innerHTML;
-}
-
 function renderCookieCard(cookie, prepend = false) {
   const card = document.createElement("article");
   card.className = "cookie-card";
@@ -35,12 +29,16 @@ function renderCookieCard(cookie, prepend = false) {
     ? new Date(cookie.created_at).toLocaleTimeString("de-DE")
     : "jetzt";
 
+  const type = cookie.cookie_type ?? "";
+  const author = cookie.author || "Anonym";
+  const msg = cookie.message ?? "";
+
   card.innerHTML = `
     <div class="cookie-top">
-      <span class="cookie-badge">${escapeHtml(cookie.cookie_type)} · ${escapeHtml(cookie.author || "Anonym")}</span>
-      <span>${escapeHtml(timeStr)}</span>
+      <span class="cookie-badge">${type} · ${author}</span>
+      <span>${timeStr}</span>
     </div>
-    <p class="cookie-msg">${escapeHtml(cookie.message)}</p>
+    <p class="cookie-msg">${msg}</p>
   `;
 
   if (prepend) {
