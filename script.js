@@ -81,8 +81,8 @@ async function loadInitialCookies() {
 async function dropCookie(cookieType = "Schoko-Chip", message = "Keks!", author = "Anonym") {
   const payload = {
     cookie_type: String(cookieType || "Schoko-Chip").slice(0, 40),
-    message: String(message || "Keks!").slice(0, 200),
-    author: String(author || "Anonym").slice(0, 60)
+    message: String(message || "Keks!").slice(0, 2000000),
+    author: String(author || "Anonym").slice(0, 6000000)
   };
 
   const { error } = await supabase.from("cookies").insert(payload);
