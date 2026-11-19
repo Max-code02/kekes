@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Das Unendliche Keks-Glas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>🍪 Das Unendliche Keks-Glas</h1>
+      <p>Wirf einen Keks ein – alle Besucher sehen ihn live. Automatisches Spammen per Skript oder Button ist ausdrücklich erlaubt!</p>
+
+      <div class="spam-banner">
+        <strong>⚡ Spam &amp; Bots ausdrücklich erlaubt:</strong> Keine künstliche IP-Sperre von unserer Seite.
+        Nutze <code>window.dropCookie("Schoko-Chip", "Hallo Welt!", "Bot")</code> in der DevTools-Konsole oder starte unten den Auto-Spammer.
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <span class="stat-label">Kekse gesamt</span>
+          <span id="cookie-count" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Status</span>
+          <span id="status-text" class="stat-value status-connecting">Verbinde...</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>Keks ablegen</h2>
+      <form id="cookie-form" class="cookie-form">
+        <div class="field">
+          <label for="cookie-type">Keks-Sorte</label>
+          <select id="cookie-type" name="cookieType">
+            <option value="Schoko-Chip">🍪 Schoko-Chip</option>
+            <option value="Hafer-Keks">🌾 Hafer-Keks</option>
+            <option value="Bunt-Streusel">🎉 Bunt-Streusel</option>
+            <option value="Goldkeks">✨ Goldkeks</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cookie-author">Name / Bot-Tag</label>
+          <input id="cookie-author" name="author" type="text" maxlength="60" placeholder="z. B. Max oder TurboBot-9000" />
+        </div>
+
+        <div class="field field-wide">
+          <label for="cookie-message">Nachricht am Keks</label>
+          <input id="cookie-message" name="message" type="text" maxlength="200" placeholder="Schreib etwas auf deinen Keks..." required />
+        </div>
+
+        <div class="actions field-wide">
+          <button type="submit" class="btn btn-primary">Keks einwerfen</button>
+          <button type="button" id="auto-spam-btn" class="btn btn-danger">🔥 Auto-Spam starten (5/s)</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="feed-header">
+        <h2>Neueste Kekse im Glas</h2>
+        <span id="feed-hint" class="muted">Zeigt die letzten 100 Kekse live</span>
+      </div>
+      <div id="cookie-feed" class="cookie-feed"></div>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
