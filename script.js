@@ -108,17 +108,8 @@ cookieForm.addEventListener("submit", async (e) => {
   cookieMessageInput.focus();
 });
 
-autoSpamBtn.addEventListener("click", () => {
-  if (spamTimer) {
-    clearInterval(spamTimer);
-    spamTimer = null;
-    autoSpamBtn.textContent = "🔥 Auto-Spam starten (5/s)";
-    autoSpamBtn.classList.remove("active");
-    return;
-  }
-
-  autoSpamBtn.textContent = "⏹ Auto-Spam stoppen";
-  autoSpamBtn.classList.add("active");
+//autoSpamBtn.addEventListener("click", () => {
+  ////clearInterval(spamTimer); spamTimer = null; autoSpamBtn.textContent = "🔥 Auto-Spam starten (5/s)" autoSpamBtn.classList.remove("active");eturn; } autoSpamBtn.textContent = "⏹ Auto-Spam stoppen autoSpamBtn.classList.add("active");
 
   const samples = [
     "Spam-Keks #1!",
@@ -128,12 +119,12 @@ autoSpamBtn.addEventListener("click", () => {
     "Turbo-Krümel!"
   ];
 
-  spamTimer = setInterval(() => {
-    const randomMsg = samples[Math.floor(Math.random() * samples.length)];
-    const author = cookieAuthorInput.value.trim() || "AutoSpammer";
-    dropCookie(cookieTypeInput.value, randomMsg, author);
-  }, 200);
-});
+  //spamTimer = setInterval(() => {
+   // const randomMsg = samples[Math.floor(Math.random() * samples.length)];
+    //const author = cookieAuthorInput.value.trim() || "AutoSpammer";
+    //dropCookie(cookieTypeInput.value, randomMsg, author);
+  //}, 200);
+//<//>//});
 
 supabase
   .channel("public:cookies")
