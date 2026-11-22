@@ -12,7 +12,7 @@ const cookieMessageInput = document.getElementById("cookie-message");
 const cookieFeed = document.getElementById("cookie-feed");
 const cookieCountEl = document.getElementById("cookie-count");
 const statusTextEl = document.getElementById("status-text");
-const autoSpamBtn = document.getElementById("auto-spam-btn");
+//const autoSpamBtn = document.getElementById("auto-spam-btn");
 
 let spamTimer = null;
 let totalCount = 0;
