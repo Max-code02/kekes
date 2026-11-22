@@ -1,4 +1,3 @@
-
 :root {
   --bg: #14110f;
   --panel: #211b17;
@@ -8,23 +7,19 @@
   --accent: #f59e0b;
   --accent-hover: #d97706;
   --danger: #ef4444;
+  --danger-hover: #dc2626;
   --ok: #22c55e;
   --border: #3d3128;
 }
 
-* {
+- {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif;
-  background: radial-gradient(
-    circle at top,
-    #281e16 0%,
-    var(--bg) 60%
-  );
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at top, #281e16 0%, var(--bg) 60%);
   color: var(--text);
   min-height: 100vh;
 }
@@ -55,6 +50,23 @@ body {
   margin: 0 0 16px;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.spam-banner {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+
+.spam-banner code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #fde68a;
 }
 
 .stats {
@@ -124,9 +136,7 @@ label {
 }
 
 input,
-select,
-textarea {
-  width: 100%;
+select {
   background: var(--panel-2);
   color: var(--text);
   border: 1px solid var(--border);
@@ -136,22 +146,9 @@ textarea {
   outline: none;
 }
 
-textarea {
-  min-height: 120px;
-  resize: vertical;
-  font-family: ui-monospace, monospace;
-  line-height: 1.5;
-}
-
 input:focus,
-select:focus,
-textarea:focus {
+select:focus {
   border-color: var(--accent);
-}
-
-.muted {
-  color: var(--muted);
-  font-size: 0.88rem;
 }
 
 .actions {
@@ -168,17 +165,11 @@ textarea:focus {
   font-size: 0.98rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.08s ease,
-    background-color 0.15s ease;
+  transition: transform 0.08s ease, background-color 0.15s ease;
 }
 
 .btn:active {
   transform: scale(0.98);
-}
-
-.btn:disabled {
-  opacity: 0.6;
-  cursor: wait;
 }
 
 .btn-primary {
@@ -190,14 +181,17 @@ textarea:focus {
   background: var(--accent-hover);
 }
 
-.form-status {
-  margin: 0;
-  color: var(--ok);
-  font-size: 0.9rem;
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
 }
 
-.form-status.error {
-  color: var(--danger);
+.btn-danger:hover {
+  background: var(--danger-hover);
+}
+
+.btn-danger.active {
+  background: #16a34a;
 }
 
 .feed-header {
@@ -207,6 +201,11 @@ textarea:focus {
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 12px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .cookie-feed {
@@ -221,7 +220,6 @@ textarea:focus {
   padding: 12px 14px;
   display: grid;
   gap: 6px;
-  min-width: 0;
 }
 
 .cookie-top {
@@ -229,7 +227,6 @@ textarea:focus {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
   font-size: 0.86rem;
   color: var(--muted);
 }
@@ -243,64 +240,10 @@ textarea:focus {
   margin: 0;
   font-size: 1rem;
   word-break: break-word;
-  white-space: pre-wrap;
 }
-
-/* Code-Beiträge */
-
-.code-label {
-  color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-top: 8px;
-}
-
-.code-display {
-  margin: 6px 0;
-  padding: 14px;
-  max-height: 350px;
-  overflow: auto;
-  background: #100e0c;
-  border: 1px solid #493a2d;
-  border-radius: 9px;
-  color: #b9e8b9;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.cookie-preview {
-  display: block;
-  width: 100%;
-  height: 300px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: white;
-  margin-top: 8px;
-}
-
-/* Mobile */
 
 @media (max-width: 640px) {
   .cookie-form {
     grid-template-columns: 1fr;
-  }
-
-  .field-wide {
-    grid-column: auto;
-  }
-
-  .app {
-    padding: 18px 12px 40px;
-  }
-
-  .hero,
-  .panel {
-    padding: 17px;
-  }
-
-  .cookie-preview {
-    height: 250px;
   }
 }
