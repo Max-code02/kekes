@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#14110f">
   <title>Das Unendliche Keks-Glas</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +11,10 @@
   <main class="app">
 
     <header class="hero">
-      <div class="brand">🍪 KEKS COMMUNITY</div>
-      <h1>Das Unendliche Keks-Glas</h1>
+      <h1>🍪 Das Unendliche Keks-Glas</h1>
       <p>
-        Teile Nachrichten, programmiere kleine Spiele und
-        experimentiere mit HTML, CSS und JavaScript.
+        Wirf einen Keks ein – alle Besucher sehen ihn live.
+        Teile Nachrichten, HTML, CSS und JavaScript.
       </p>
 
       <div class="stats">
@@ -26,7 +24,7 @@
         </div>
 
         <div class="stat-box">
-          <span class="stat-label">Verbindung</span>
+          <span class="stat-label">Status</span>
           <span id="status-text" class="stat-value status-connecting">
             Verbinde...
           </span>
@@ -35,16 +33,13 @@
     </header>
 
     <section class="panel">
-      <div class="section-heading">
-        <h2>🍪 Etwas veröffentlichen</h2>
-        <span class="muted">Dein Beitrag für alle</span>
-      </div>
+      <h2>Keks ablegen</h2>
 
-      <form id="cookie-form">
+      <form id="cookie-form" class="cookie-form">
 
         <div class="field">
           <label for="cookie-type">Keks-Sorte</label>
-          <select id="cookie-type">
+          <select id="cookie-type" name="cookieType">
             <option value="Schoko-Chip">🍪 Schoko-Chip</option>
             <option value="Hafer-Keks">🌾 Hafer-Keks</option>
             <option value="Bunt-Streusel">🎉 Bunt-Streusel</option>
@@ -53,86 +48,52 @@
         </div>
 
         <div class="field">
-          <label for="cookie-author">Dein Name</label>
+          <label for="cookie-author">Name</label>
           <input
             id="cookie-author"
+            name="author"
             type="text"
             maxlength="40"
-            placeholder="Wie heißt du?"
+            placeholder="Dein Name"
           >
         </div>
 
-        <div class="field">
-          <label for="post-mode">Beitragsart</label>
-          <select id="post-mode">
-            <option value="message">💬 Normale Nachricht</option>
-            <option value="code">💻 HTML / CSS / JavaScript</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="cookie-message">Dein Inhalt</label>
+        <div class="field field-wide">
+          <label for="cookie-message">Nachricht oder Code</label>
           <textarea
             id="cookie-message"
+            name="message"
             maxlength="20000"
-            rows="6"
-            placeholder="Was möchtest du ins Keks-Glas werfen?"
+            rows="5"
+            placeholder="Schreib etwas auf deinen Keks..."
             required
           ></textarea>
+          <span class="muted">
+            Nachrichten und Code werden automatisch erkannt.
+            HTML, CSS und JavaScript sind möglich.
+          </span>
         </div>
 
-        <div id="preview-section" class="preview-section hidden">
-          <div class="preview-heading">
-            <div>
-              <h3>⚡ Live-Vorschau</h3>
-              <span class="muted">Dein Code wird direkt ausgeführt.</span>
-            </div>
-            <span class="live-dot">LIVE</span>
-          </div>
-
-          <iframe
-            id="own-preview"
-            sandbox="allow-scripts"
-            referrerpolicy="no-referrer"
-            title="Eigene Code-Vorschau"
-          ></iframe>
-
-          <p class="security-note">
-            Isolierte Vorschau: kein Zugriff auf die Hauptseite oder
-            Supabase-Daten. Externe Netzwerkzugriffe sind gesperrt.
-          </p>
-        </div>
-
-        <div class="actions">
-          <button type="submit" id="submit-btn" class="btn btn-primary">
-            🍪 Veröffentlichen
+        <div class="actions field-wide">
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Keks einwerfen
           </button>
         </div>
 
-        <p id="form-status" class="form-status"></p>
+        <p id="form-status" class="form-status field-wide"></p>
       </form>
     </section>
 
     <section class="panel">
       <div class="feed-header">
-        <div>
-          <h2>🌎 Das Keks-Glas</h2>
-          <p class="muted">Neue Beiträge erscheinen live.</p>
-        </div>
-
-        <span class="feed-indicator">
-          <span class="live-dot"></span> LIVE
+        <h2>Neueste Kekse im Glas</h2>
+        <span id="feed-hint" class="muted">
+          Zeigt die letzten 100 Kekse live
         </span>
       </div>
 
-      <div id="cookie-feed" class="cookie-feed">
-        <p class="muted">Beiträge werden geladen...</p>
-      </div>
+      <div id="cookie-feed" class="cookie-feed"></div>
     </section>
-
-    <footer>
-      🍪 Das Unendliche Keks-Glas
-    </footer>
 
   </main>
 
